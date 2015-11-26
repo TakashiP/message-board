@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   def index
+      # Messageを全て取得する。
       @messages = Message.all
+      @message = Message.new
   end
 
   def create
@@ -13,7 +15,7 @@ class MessagesController < ApplicationController
       @messages = Message.all
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'index'
-      
+    end
   end
 
   private
